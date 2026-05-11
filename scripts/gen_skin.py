@@ -8,7 +8,7 @@ Keypad: 3x5 grid (1-9, *, 0, #, Cancel, Clear, Enter).
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-SKIN_DIR = os.path.expanduser("~/Library/Android/sdk/skins/verifone_p630plus")
+SKIN_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "skins", "verifone", "p630plus")
 
 # --- Dimensions (pixels in skin coordinate space) ---
 # Scale: real device is 76.58mm wide. Screen is 320px at ~166dpi ≈ 48.9mm.
@@ -26,9 +26,9 @@ BEZEL_SIDE = 28
 BEZEL_MID = 14  # gap between screen and keypad
 KEY_ROWS = 5
 KEY_COLS = 3
-KEY_W = 60
+KEY_W = 100
 KEY_H = 40
-KEY_GAP_X = 12
+KEY_GAP_X = 10
 KEY_GAP_Y = 8
 KEYPAD_MARGIN_SIDE = 28
 BEZEL_BOTTOM = 28
@@ -37,7 +37,7 @@ CORNER_RADIUS = 16
 # Keypad area dimensions
 KEYPAD_W = KEY_COLS * KEY_W + (KEY_COLS - 1) * KEY_GAP_X
 KEYPAD_H = KEY_ROWS * KEY_H + (KEY_ROWS - 1) * KEY_GAP_Y
-KEYPAD_X = (SCREEN_W + 2 * BEZEL_SIDE - KEYPAD_W) // 2
+KEYPAD_X = BEZEL_SIDE  # align with screen left edge
 KEYPAD_Y = BEZEL_TOP + SCREEN_H + BEZEL_MID
 
 # Total device dimensions
