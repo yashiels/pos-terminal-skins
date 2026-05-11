@@ -1,0 +1,118 @@
+parts {
+  device {
+    display {
+      width 320
+      height 480
+      x 0
+      y 0
+    }
+  }
+  portrait {
+    background {
+      image port_back.png
+    }
+    onion {
+      image port_fore.png
+    }
+    buttons {
+      1 {
+        image key.png
+        x 86
+        y 534
+      }
+      2 {
+        image key.png
+        x 158
+        y 534
+      }
+      3 {
+        image key.png
+        x 230
+        y 534
+      }
+      4 {
+        image key.png
+        x 86
+        y 582
+      }
+      5 {
+        image key.png
+        x 158
+        y 582
+      }
+      6 {
+        image key.png
+        x 230
+        y 582
+      }
+      7 {
+        image key.png
+        x 86
+        y 630
+      }
+      8 {
+        image key.png
+        x 158
+        y 630
+      }
+      9 {
+        image key.png
+        x 230
+        y 630
+      }
+      star {
+        image key.png
+        x 86
+        y 678
+      }
+      0 {
+        image key.png
+        x 158
+        y 678
+      }
+      pound {
+        image key.png
+        x 230
+        y 678
+      }
+      phone-hangup {
+        image key.png
+        x 86
+        y 726
+      }
+      del {
+        image key.png
+        x 158
+        y 726
+      }
+      dpad-center {
+        image key.png
+        x 230
+        y 726
+      }
+      power {
+        image power.png
+        x -1
+        y 90
+      }
+    }
+  }
+}
+layouts {
+  portrait {
+    width 376
+    height 794
+    color 0xff1a1a1e
+    event EV_SW:0:1
+    part1 {
+      name portrait
+      x 0
+      y 0
+    }
+    part2 {
+      name device
+      x 28
+      y 40
+    }
+  }
+}
