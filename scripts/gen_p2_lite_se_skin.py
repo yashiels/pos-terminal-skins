@@ -24,10 +24,10 @@ SCREEN_H = 1280
 # Bottom chin: ~28mm * 11.76 ≈ 329px
 # Side bezels: ~5.6mm * 11.76 ≈ 66px
 
-BEZEL_TOP = 118
-BEZEL_SIDE = 66
-BEZEL_BOTTOM = 329  # thick chin
-CORNER_RADIUS = 40
+BEZEL_TOP = 40
+BEZEL_SIDE = 16
+BEZEL_BOTTOM = 120  # chin for NFC/branding
+CORNER_RADIUS = 24
 
 DEVICE_W = SCREEN_W + 2 * BEZEL_SIDE  # 852
 DEVICE_H = BEZEL_TOP + SCREEN_H + BEZEL_BOTTOM  # 1727
@@ -67,15 +67,15 @@ def generate_background():
     # Front camera dot (top center, above screen)
     cam_x = DEVICE_W // 2
     cam_y = BEZEL_TOP // 2
-    draw.ellipse((cam_x - 6, cam_y - 6, cam_x + 6, cam_y + 6), fill=(20, 20, 25), outline=(50, 50, 55))
-    draw.ellipse((cam_x - 3, cam_y - 3, cam_x + 3, cam_y + 3), fill=(30, 30, 50))
+    draw.ellipse((cam_x - 4, cam_y - 4, cam_x + 4, cam_y + 4), fill=(20, 20, 25), outline=(50, 50, 55))
+    draw.ellipse((cam_x - 2, cam_y - 2, cam_x + 2, cam_y + 2), fill=(30, 30, 50))
 
     # SUNMI branding in chin area
     try:
-        brand_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 28)
+        brand_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 20)
     except Exception:
         brand_font = ImageFont.load_default()
-    chin_center_y = BEZEL_TOP + SCREEN_H + BEZEL_BOTTOM // 3
+    chin_center_y = BEZEL_TOP + SCREEN_H + BEZEL_BOTTOM // 3 - 5
     bbox = draw.textbbox((0, 0), "SUNMI", font=brand_font)
     tw = bbox[2] - bbox[0]
     draw.text((DEVICE_W // 2 - tw // 2, chin_center_y), "SUNMI", fill=(80, 80, 85), font=brand_font)
@@ -83,12 +83,12 @@ def generate_background():
     # NFC indicator in chin (subtle contactless symbol)
     nfc_y = BEZEL_TOP + SCREEN_H + BEZEL_BOTTOM * 2 // 3
     nfc_x = DEVICE_W // 2
-    for i, r in enumerate([18, 26, 34]):
+    for i, r in enumerate([12, 18, 24]):
         draw.arc((nfc_x - r, nfc_y - r, nfc_x + r, nfc_y + r), start=-45, end=45, fill=(55, 55, 60), width=2)
 
-    # Power button (right side, upper third)
+    # Power button (right side, upper area)
     power_x = DEVICE_W - 1
-    power_y = BEZEL_TOP + 80
+    power_y = BEZEL_TOP + 60
     rounded_rect(draw, (power_x - POWER_W + 1, power_y, power_x + 1, power_y + POWER_H), 4, (55, 55, 60))
 
     # Right scan button (orange, right side, mid-height)
@@ -102,10 +102,10 @@ def generate_background():
     rounded_rect(draw, (lscan_x - 1, lscan_y, lscan_x + SCAN_W, lscan_y + SCAN_H), 4, ORANGE, outline=ORANGE_DARK)
 
     # USB-C port indicator at bottom
-    usb_w = 24
-    usb_h = 6
+    usb_w = 20
+    usb_h = 5
     usb_x = DEVICE_W // 2 - usb_w // 2
-    usb_y = DEVICE_H - 4
+    usb_y = DEVICE_H - 3
     rounded_rect(draw, (usb_x, usb_y, usb_x + usb_w, usb_y + usb_h), 3, (50, 50, 55))
 
     return img
@@ -130,7 +130,7 @@ def generate_button_highlight(w, h):
 def compute_button_positions():
     buttons = {}
     # Power: right side, upper area
-    buttons["power"] = (DEVICE_W - POWER_W, BEZEL_TOP + 80, POWER_W, POWER_H)
+    buttons["power"] = (DEVICE_W - POWER_W, BEZEL_TOP + 60, POWER_W, POWER_H)
     # Right scan trigger -> map to camera (common for barcode scan)
     rscan_y = BEZEL_TOP + SCREEN_H // 2 - SCAN_H // 2
     buttons["camera"] = (DEVICE_W - SCAN_W, rscan_y, SCAN_W, SCAN_H)
