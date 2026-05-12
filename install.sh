@@ -55,6 +55,7 @@ LCD_H=$(grep "hw.lcd.height" "$HW_FILE" | cut -d= -f2)
 LCD_D=$(grep "hw.lcd.density" "$HW_FILE" | cut -d= -f2)
 RAM=$(grep "hw.ramSize" "$HW_FILE" | cut -d= -f2)
 DISPLAY_NAME=$(grep "avd.ini.displayname" "$HW_FILE" | cut -d= -f2)
+TARGET_API=$(grep "target.api" "$HW_FILE" | cut -d= -f2)
 
 # Derive AVD name from path: verifone/p630plus -> verifone_p630plus
 AVD_NAME=$(echo "$SKIN_PATH" | tr '/' '_')
@@ -76,8 +77,9 @@ echo "  -> $SDK_SKIN_DIR"
 
 # Step 2: Find or use system image
 if [[ -z "$SYSTEM_IMAGE" ]]; then
-  # Auto-detect: prefer API 33 arm64-v8a, fall back to whatever is installed
-  for api in android-33 android-34 android-35 android-30 android-36; do
+  # Auto-detect: prefer device's target API, fall back to others
+  TARGET="android-${TARGET_API:-33}"
+  for api in $TARGET android-33 android-34 android-35 android-30 android-36; do
     for tag in default google_apis; do
       for abi in arm64-v8a x86_64; do
         candidate="system-images;${api};${tag};${abi}"
