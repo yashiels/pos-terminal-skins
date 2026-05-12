@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 
 SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SKIN_DIR = os.path.join(SCRIPT_DIR, "skins", "sunmi", "p2_lite_se")
+SKIN_DIR = os.path.join(SCRIPT_DIR, "skins", "sunmi", "p2litese")
 
 # --- Dimensions (1:1 with device pixels) ---
 SCREEN_W = 720
