@@ -7,6 +7,7 @@ Android emulator skins for POS (Point of Sale) payment terminals. Each skin repl
 | Brand | Model | Screen | Density | API | Keys |
 |-------|-------|--------|---------|-----|------|
 | Verifone | P630 Plus | 320×480 | 160 (mdpi) | 33 (Android 13) | 15-key numpad |
+| Sunmi | P2 Lite SE | 720×1280 | 294 (xhdpi) | 30 (Android 11) | Power + 2 scan triggers |
 
 ## Quick Start
 

@@ -1,0 +1,53 @@
+parts {
+  device {
+    display {
+      width 720
+      height 1280
+      x 0
+      y 0
+    }
+  }
+  portrait {
+    background {
+      image port_back.png
+    }
+    onion {
+      image port_fore.png
+    }
+    buttons {
+      power {
+        image power.png
+        x 844
+        y 198
+      }
+      camera {
+        image scan.png
+        x 844
+        y 723
+      }
+      search {
+        image scan.png
+        x 0
+        y 723
+      }
+    }
+  }
+}
+layouts {
+  portrait {
+    width 852
+    height 1727
+    color 0xff19191c
+    event EV_SW:0:1
+    part1 {
+      name portrait
+      x 0
+      y 0
+    }
+    part2 {
+      name device
+      x 66
+      y 118
+    }
+  }
+}
