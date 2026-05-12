@@ -6,7 +6,7 @@ set -euo pipefail
 #
 # Examples:
 #   ./install.sh verifone/p630plus
-#   ./install.sh sunmi/p2 --system-image "system-images;android-30;default;arm64-v8a"
+#   ./install.sh sunmi/p2litese --system-image "system-images;android-30;default;arm64-v8a"
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SDK_DIR="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-$HOME/Library/Android/sdk}}"

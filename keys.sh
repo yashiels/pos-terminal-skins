@@ -57,7 +57,16 @@ send_key() {
 }
 
 if [[ $# -eq 0 ]]; then
-  send_key "--help"
+  echo "Usage: ./keys.sh <key> [key...]"
+  echo ""
+  echo "Numeric:  0 1 2 3 4 5 6 7 8 9"
+  echo "Symbols:  star  pound"
+  echo "Function: enter  clear  cancel"
+  echo "Nav:      up  down  left  right  back  home  recents  menu"
+  echo "System:   power"
+  echo "Fn keys:  f1  f2  f3  f4"
+  echo ""
+  echo "Env: ADB_TARGET=-s <serial>  (default: -e for emulator)"
   exit 1
 fi
 

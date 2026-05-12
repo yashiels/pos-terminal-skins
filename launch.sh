@@ -6,7 +6,7 @@ set -euo pipefail
 #
 # Examples:
 #   ./launch.sh verifone_p630plus
-#   ./launch.sh sunmi_p2 -no-audio
+#   ./launch.sh sunmi_p2litese -no-audio
 
 SDK_DIR="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-$HOME/Library/Android/sdk}}"
 EMULATOR="$SDK_DIR/emulator/emulator"
