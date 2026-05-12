@@ -54,6 +54,7 @@ LCD_W=$(grep "hw.lcd.width" "$HW_FILE" | cut -d= -f2)
 LCD_H=$(grep "hw.lcd.height" "$HW_FILE" | cut -d= -f2)
 LCD_D=$(grep "hw.lcd.density" "$HW_FILE" | cut -d= -f2)
 RAM=$(grep "hw.ramSize" "$HW_FILE" | cut -d= -f2)
+DISPLAY_NAME=$(grep "avd.ini.displayname" "$HW_FILE" | cut -d= -f2)
 
 # Derive AVD name from path: verifone/p630plus -> verifone_p630plus
 AVD_NAME=$(echo "$SKIN_PATH" | tr '/' '_')
@@ -114,6 +115,15 @@ CONFIG="$AVD_DIR/config.ini"
 if [[ -f "$CONFIG" ]]; then
   echo ""
   echo "Patching AVD config..."
+
+  # Set display name
+  if [[ -n "$DISPLAY_NAME" ]]; then
+    if grep -q "avd.ini.displayname" "$CONFIG" 2>/dev/null; then
+      sed -i '' "s|avd.ini.displayname=.*|avd.ini.displayname=$DISPLAY_NAME|" "$CONFIG"
+    else
+      echo "avd.ini.displayname=$DISPLAY_NAME" >> "$CONFIG"
+    fi
+  fi
 
   sed -i '' "s|hw.lcd.width=.*|hw.lcd.width=$LCD_W|" "$CONFIG"
   sed -i '' "s|hw.lcd.height=.*|hw.lcd.height=$LCD_H|" "$CONFIG"
