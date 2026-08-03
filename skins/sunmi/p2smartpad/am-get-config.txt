@@ -1,0 +1,2 @@
+config: en-rGB-ldltr-sw320dp-w485dp-h296dp-normal-notlong-notround-lowdr-nowidecg-land-notnight-hdpi-finger-keysexposed-qwerty-navexposed-dpad-728x480-v28
+abi: armeabi-v7a,armeabi
