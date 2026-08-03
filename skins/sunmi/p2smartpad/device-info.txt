@@ -1,0 +1,35 @@
+=== POS Terminal Device Info ===
+
+## Identity
+Model:        P2_SMARTPAD
+Manufacturer: SUNMI
+Brand:        SUNMI
+Device:       P2_SMARTPAD
+Product:      P2_SMARTPAD
+Firmware:     PKQ1.200813.001 release-keys
+
+## Display
+Physical size: 480x800
+Physical density: 240
+LCD density:  240
+
+## Display Detail
+  DisplayDeviceInfo{"Built-in Screen": uniqueId="local:0", 480 x 800, modeId 1, defaultModeId 1, supportedModes [{id=1, width=480, height=800, fps=60.000004}], colorMode 0, supportedColorModes [0], HdrCapabilities android.view.Display$HdrCapabilities@40f16308, density 240, 320.842 x 317.5 dpi, appVsyncOff 1000000, presDeadline 16666666, touch INTERNAL, rotation 0, type BUILT_IN, state ON, FLAG_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}
+
+## Software
+Android:      9 (API 28)
+CPU ABI:      armeabi-v7a
+ABI list:     armeabi-v7a,armeabi
+Hardware:     qcom
+Platform:     msm8937
+
+## Memory
+MemTotal:        1931708 kB
+MemFree:          174172 kB
+MemAvailable:    1108532 kB
+
+## Storage
+/dev/block/mmcblk0p56  12608436 1052556  11555880   9% /data
+
+## App Viewport
+    mOverrideDisplayInfo=DisplayInfo{"Built-in Screen", uniqueId "local:0", app 728 x 480, real 800 x 480, largest app 728 x 692, smallest app 480 x 444, mode 1, defaultMode 1, modes [{id=1, width=480, height=800, fps=60.000004}], colorMode 0, supportedColorModes [0], hdrCapabilities android.view.Display$HdrCapabilities@40f16308, rotation 3, density 240 (320.842 x 317.5) dpi, layerStack 0, appVsyncOff 1000000, presDeadline 16666666, type BUILT_IN, state ON, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, removeMode 0}
